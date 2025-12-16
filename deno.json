@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "@hono/zod-validator": "jsr:@hono/zod-validator@^0.7.5",
+    "@neondatabase/serverless": "npm:@neondatabase/serverless@^1.0.2",
+    "drizzle-kit": "npm:drizzle-kit@^0.31.8",
+    "drizzle-orm": "npm:drizzle-orm@^0.45.0",
+    "hono": "jsr:@hono/hono@^4.10.8"
+  },
+  "tasks": {
+    "start": "deno run --env-file -A ./src/main.ts",
+    "drizzle-kit-push": "deno --env-file -A --node-modules-dir npm:drizzle-kit push",
+    "drizzle-kit-pull": "deno --env-file -A --node-modules-dir npm:drizzle-kit pull"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "hono/jsx"
+  }
+}
