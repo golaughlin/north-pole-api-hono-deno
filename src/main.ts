@@ -1,4 +1,5 @@
 import { Hono } from "hono"
+import { cors } from "hono/cors"
 import { db } from "./db.ts"
 import { childrenTable } from "./db/schema.ts"
 import { Child } from "./types.ts"
@@ -6,6 +7,9 @@ import { eq } from "drizzle-orm"
 
 // Create Hono App
 const app = new Hono()
+
+// Add CORS middleware
+app.use('/*', cors())
 
 // Welcome message
 app.get('/', (c) => {
