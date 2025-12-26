@@ -1,4 +1,4 @@
-import {pgTable, serial, varchar, date, boolean, timestamp } from "drizzle-orm/pg-core"
+import { pgTable, serial, varchar, date, boolean, timestamp } from "drizzle-orm/pg-core"
 
 // Create Children schema for database
 export const childrenTable = pgTable('children', {

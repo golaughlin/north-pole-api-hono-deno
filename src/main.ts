@@ -43,7 +43,7 @@ app.get('/children/:id', async (c) => {
 
 // Add a new child to the list
 app.post('/children', async (c) => {
-  const {firstName, lastName, dateOfBirth, hometown, isNice} = await c.req.json<Child>()
+  const { firstName, lastName, dateOfBirth, hometown, isNice } = await c.req.json<Child>()
 
   try {
     await db.insert(childrenTable).values({
