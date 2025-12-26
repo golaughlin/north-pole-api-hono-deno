@@ -35,7 +35,7 @@ app.get('/children/:id', async (c) => {
     .where(eq(childrenTable.id, id))
   if (!child) {
     console.error(`[${Date()}] There was an attempt to fetch a child on the list that doesn't exist.`)
-    return c.json({ error: "Child not found on Santa's List"}, 404)
+    return c.json({ error: "Child not found on Santa's List" }, 404)
   }
   console.log(`[${Date()}] Info on Child with an ID of ${id} fetched`)
   return c.json(child, 200)
@@ -92,7 +92,7 @@ app.delete('children/:id', async (c) => {
   try {
     await db.delete(childrenTable).where(eq(childrenTable.id, id))
     console.log(`[${Date()}] Child #${id} removed from list.`)
-    return c.json({ message: "Child removed"}, 200)
+    return c.json({ message: "Child removed" }, 200)
   } catch (error) {
     console.error(error)
     return c.json({ error: `Could not delete child #${id}` }, 400)
