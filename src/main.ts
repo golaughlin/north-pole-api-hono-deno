@@ -3,7 +3,7 @@ import { cors } from "hono/cors"
 import { db } from "./db.ts"
 import { childrenTable } from "./db/schema.ts"
 import { Child } from "./types.ts"
-import { eq } from "drizzle-orm"
+import { eq, desc } from "drizzle-orm"
 
 // Create Hono App
 const app = new Hono()
@@ -21,6 +21,7 @@ app.get('/children', async (c) => {
   const childrenList = await db
     .select()
     .from(childrenTable)
+    .orderBy(desc(childrenTable.lastName))
   console.log(`[${Date()}] Naughty and Nice List accessed.`)
   return c.json(childrenList, 200)
 })
